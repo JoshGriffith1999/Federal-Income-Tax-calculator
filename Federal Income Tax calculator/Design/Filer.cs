@@ -11,11 +11,16 @@ namespace Federal_Income_Tax_calculator
 		private float Standard_Deduction = 12000;
 		private string Name;
 
-		private void Set_Name()
+		public void Set_Name()
 		{
             Console.WriteLine("Please Enter Your Name: ");
             this.Name = Console.ReadLine();
 		}
+
+        public void getName() {
+
+            Console.WriteLine(this.Name);
+        }
 
 		public void Set_Income()
 		{
