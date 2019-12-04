@@ -50,7 +50,19 @@ namespace Federal_Income_Tax_calculator
 
             if (this.Income < this.Standard_Deduction) {
 
+                Console.WriteLine("Please Enter any IRA contributions you have made");
+                IRA = double.Parse(Console.ReadLine());
 
+                Console.WriteLine("Please Enter any student loan interest");
+                student_loan_interest = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Please Enter any 401(k) payments");
+                k_Payments = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Please Enter any moving expenses");
+                moving_expense = double.Parse(Console.ReadLine());
+
+                this.Income = this.Income - (IRA + student_loan_interest + k_Payments + moving_expense);
             }
 
             else {
@@ -104,9 +116,9 @@ namespace Federal_Income_Tax_calculator
         public void setFinalTax(double tax) {
             this.Final_Tax = tax;
         }
-        public double getFinalTax() {
+        public void getFinalTax() {
 
-            return this.Final_Tax;
+            Console.WriteLine(this.Final_Tax);
         }
 	}
 }

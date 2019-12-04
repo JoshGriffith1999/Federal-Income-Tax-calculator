@@ -6,7 +6,7 @@
     <RootNamespace>Federal Income Tax calculator.Design</RootNamespace>
     <AssemblyName>Design</AssemblyName>
     <ProjectGuid>{50BA5292-82E4-479A-B987-A07372DBD3DB}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -29,6 +29,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

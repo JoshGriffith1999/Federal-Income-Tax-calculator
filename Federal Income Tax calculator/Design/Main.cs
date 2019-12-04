@@ -7,11 +7,12 @@ namespace Federal_Income_Tax_calculator
 {
     class Program
     {
-        static void main(string[] args)
+        static void Main(string[] args)
         {
             int answer = 0;
             Console.WriteLine("2020 - 2021 Federal Income TAX Calculator");
             Console.WriteLine("Enter filing status 1: Single 2: Married file Jointly 3: 3 Married filing speratly 4: Head of Household");
+            Console.WriteLine("Filing status: ");
             answer = Convert.ToInt32(Console.ReadLine());
 
             switch (answer)
@@ -36,6 +37,8 @@ namespace Federal_Income_Tax_calculator
                     break;
 
             }
+
+            Console.ReadLine();
         }//main end
     }//class end
 }//namespace end
