@@ -15,10 +15,10 @@ namespace Federal_Income_Tax_calculator
             base.set_Calc_Exemption();
             this.calc_final_tax();
 
-            base.getName();
-            Console.WriteLine("You owe ");
-            base.getFinalTax();
-            Console.WriteLine("In taxes");
+            //base.getName();
+            Console.WriteLine(base.getName(),"You owe ", "In Taxes");
+            //base.getFinalTax();
+            //Console.WriteLine("In taxes");
         }
         private double calc_final_tax()
         {

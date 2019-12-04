@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Federal_Income_Tax_calculator
 {
@@ -38,7 +39,7 @@ namespace Federal_Income_Tax_calculator
 
             }
 
-            Console.ReadLine();
+            Thread.Sleep(30000);
         }//main end
     }//class end
 }//namespace end
