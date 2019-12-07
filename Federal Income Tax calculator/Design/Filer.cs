@@ -41,7 +41,7 @@ namespace Federal_Income_Tax_calculator
 
 		public void Calc_Deductions(double Standard_Deduction)
 		{
-            double IRA = 0;
+            double TaxesWithHeld = 0;
             double student_loan_interest = 0;
             double k_Payments = 0;
             double morgage_interest = 0;
@@ -49,8 +49,8 @@ namespace Federal_Income_Tax_calculator
 
             if (this.Income < Standard_Deduction) {
 
-                Console.WriteLine("Please Enter any IRA contributions you have made");
-                IRA = double.Parse(Console.ReadLine());
+                Console.WriteLine("Please Enter any taxes already with held");
+                TaxesWithHeld = double.Parse(Console.ReadLine());
 
                 Console.WriteLine("Please Enter any student loan interest");
                 student_loan_interest = double.Parse(Console.ReadLine());
@@ -64,7 +64,7 @@ namespace Federal_Income_Tax_calculator
                 if (morgage_interest > 750000)
                     morgage_interest = 750000;
 
-                this.Income = this.Income - (IRA + student_loan_interest + k_Payments + morgage_interest);
+                this.Income = this.Income - (TaxesWithHeld + student_loan_interest + k_Payments + morgage_interest);
             }
 
             else {
@@ -78,8 +78,8 @@ namespace Federal_Income_Tax_calculator
                 }
 
                 else {
-                    Console.WriteLine("Please Enter any IRA contributions you have made");
-                    IRA = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Please Enter any taxes already with held");
+                    TaxesWithHeld = double.Parse(Console.ReadLine());
 
                     Console.WriteLine("Please Enter any student loan interest");
                     student_loan_interest = double.Parse(Console.ReadLine());
@@ -93,7 +93,7 @@ namespace Federal_Income_Tax_calculator
                     if (morgage_interest > 750000)
                         morgage_interest = 750000;
 
-                    this.Income = this.Income - (IRA + student_loan_interest + k_Payments + morgage_interest);
+                    this.Income = this.Income - (TaxesWithHeld + student_loan_interest + k_Payments + morgage_interest);
 
                 }
 
@@ -126,6 +126,8 @@ namespace Federal_Income_Tax_calculator
             Console.WriteLine(this.Final_Tax);
         }
 
+        //Use this function only to compare the final tax to a value of zero
+        //Did it this way since I can't convert a double to a string because of size differences
         public double LookFinalTax() {
             return this.Final_Tax;
         }
