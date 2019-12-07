@@ -9,7 +9,8 @@ namespace Federal_Income_Tax_calculator
 
         public Married_File_Jointly()
         {
-            Console.WriteLine("Note before you add in anything add your income, deductions, independednts etc before enetering - THANKS!");
+            Console.WriteLine("Note: before you enter in any information, ");
+            Console.WriteLine("please add the total income, deductions, independednts etc before enetering - THANKS!");
             base.Set_Name();
             base.Set_Income();
             base.Calc_Deductions(24000);
@@ -39,12 +40,12 @@ namespace Federal_Income_Tax_calculator
             double temp = base.getIcome();
             double final = 0;
 
-            double bracket1 = 19750;
-            double bracket2 = 80250;
-            double bracket3 = 171050;
-            double bracket4 = 326600;
-            double bracket5 = 414700;
-            double bracekt6 = 622050;
+            double bracket1 = 19400;
+            double bracket2 = 78950;
+            double bracket3 = 168400;
+            double bracket4 = 321450;
+            double bracket5 = 408200;
+            double bracekt6 = 612350;
 
             //Bracket 1
             if (temp > bracket1)

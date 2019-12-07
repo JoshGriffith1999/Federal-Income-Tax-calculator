@@ -40,12 +40,12 @@ namespace Federal_Income_Tax_calculator
             double temp = base.getIcome();
             double final = 0;
 
-            double bracket1 = 9875;
-            double bracket2 = 40125;
-            double bracket3 = 85545;
-            double bracket4 = 163300;
-            double bracket5 = 207350;
-            double bracekt6 = 311025;
+            double bracket1 = 9700;
+            double bracket2 = 39475;
+            double bracket3 = 84200;
+            double bracket4 = 160725;
+            double bracket5 = 204100;
+            double bracekt6 = 306175;
 
             //Bracket 1
             if (temp > bracket1)
