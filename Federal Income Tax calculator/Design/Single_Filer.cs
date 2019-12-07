@@ -11,14 +11,25 @@ namespace Federal_Income_Tax_calculator
         {
             base.Set_Name();
             base.Set_Income();
-            base.Calc_Deductions();
+            base.Calc_Deductions(12000);
             base.set_Calc_Exemption();
             this.calc_final_tax();
 
-            //base.getName();
-            Console.WriteLine(base.getName(),"You owe ", "In Taxes");
-            //base.getFinalTax();
-            //Console.WriteLine("In taxes");
+            if (base.LookFinalTax() > 0)
+            {
+                base.getName();
+                Console.WriteLine("You owe ");
+                base.getFinalTax();
+                Console.WriteLine("In taxes");
+            }
+
+            else {
+                base.getName();
+                Console.WriteLine("You will get ");
+                base.getFinalTax();
+                Console.WriteLine(" back in as return");
+
+            }
         }
         private double calc_final_tax()
         {
@@ -26,12 +37,18 @@ namespace Federal_Income_Tax_calculator
             double temp = base.getIcome();
             double final = 0;
 
+            double bracket1 = 9875;
+            double bracket2 = 40125;
+            double bracket3 = 85545;
+            double bracket4 = 163300;
+            double bracket5 = 207350;
+            double bracekt6 = 518400;
+            
             //Bracket 1
-            if (temp > 9875)
+            if (temp > bracket1)
             {
-
+                temp -= bracket1;
                 final = 9875 * 0.10;
-                temp -= 9875;
             }
 
             else
@@ -44,11 +61,10 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 2
-            if (temp > 40125)
+            if (temp > bracket2)
             {
-
-                final = final + (40125 * 0.12);
-                temp -= 40125;
+                temp -= bracket2;
+                final = final + (bracket2 * 0.12); 
 
             }
 
@@ -59,10 +75,10 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 3
-            if (temp > 85545)
+            if (temp > bracket3)
             {
-                final = final + (85545 * 0.22);
-                temp -= 85545;
+                temp -= bracket3;
+                final = final + (bracket3 * 0.22);
             }
 
             else
@@ -73,10 +89,10 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 4
-            if (temp > 163300)
+            if (temp > bracket4)
             {
-                final = final + (163300 * 0.24);
-                temp -= 163300;
+                temp -= bracket4;
+                final = final + (bracket4 * 0.24);
             }
             else
             {
@@ -85,10 +101,10 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 5
-            if (temp > 207350)
+            if (temp > bracket5)
             {
-                final = final + (207350 * 0.32);
-                temp -= 207350;
+                temp -= bracket5;
+                final = final + (bracket5 * 0.32);
             }
             else
             {
@@ -97,10 +113,10 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 6
-            if (temp > 518400)
+            if (temp > bracekt6)
             {
-                final = final + (518400 * 0.35);
-                temp -= 518400;
+                final = final + (bracekt6 * 0.35);
+                temp -= bracekt6;
             }
             else
             {

@@ -8,7 +8,6 @@ namespace Federal_Income_Tax_calculator
 	{
 		private double Final_Tax;
 		private double Income;
-		private double Standard_Deduction = 12000;
 		private string Name;
 
 		public void Set_Name()
@@ -40,15 +39,15 @@ namespace Federal_Income_Tax_calculator
             this.Income = income + interest + lottery;
         }
 
-		public void Calc_Deductions()
+		public void Calc_Deductions(double Standard_Deduction)
 		{
             double IRA = 0;
             double student_loan_interest = 0;
             double k_Payments = 0;
-            double moving_expense = 0;
+            double morgage_interest = 0;
             int option = 0;
 
-            if (this.Income < this.Standard_Deduction) {
+            if (this.Income < Standard_Deduction) {
 
                 Console.WriteLine("Please Enter any IRA contributions you have made");
                 IRA = double.Parse(Console.ReadLine());
@@ -59,10 +58,13 @@ namespace Federal_Income_Tax_calculator
                 Console.WriteLine("Please Enter any 401(k) payments");
                 k_Payments = double.Parse(Console.ReadLine());
 
-                Console.WriteLine("Please Enter any moving expenses");
-                moving_expense = double.Parse(Console.ReadLine());
+                Console.WriteLine("Please Enter any morgage interest");
+                morgage_interest = double.Parse(Console.ReadLine());
 
-                this.Income = this.Income - (IRA + student_loan_interest + k_Payments + moving_expense);
+                if (morgage_interest > 750000)
+                    morgage_interest = 750000;
+
+                this.Income = this.Income - (IRA + student_loan_interest + k_Payments + morgage_interest);
             }
 
             else {
@@ -72,7 +74,7 @@ namespace Federal_Income_Tax_calculator
                 if (option == 1)
                 {
 
-                    this.Income = this.Income - this.Standard_Deduction;
+                    this.Income = this.Income - Standard_Deduction;
                 }
 
                 else {
@@ -85,10 +87,13 @@ namespace Federal_Income_Tax_calculator
                     Console.WriteLine("Please Enter any 401(k) payments");
                     k_Payments = double.Parse(Console.ReadLine());
 
-                    Console.WriteLine("Please Enter any moving expenses");
-                    moving_expense = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Please Enter any morgage interest");
+                    morgage_interest = double.Parse(Console.ReadLine());
 
-                    this.Income = this.Income - (IRA + student_loan_interest + k_Payments + moving_expense);
+                    if (morgage_interest > 750000)
+                        morgage_interest = 750000;
+
+                    this.Income = this.Income - (IRA + student_loan_interest + k_Payments + morgage_interest);
 
                 }
 
@@ -119,6 +124,10 @@ namespace Federal_Income_Tax_calculator
         public void getFinalTax() {
 
             Console.WriteLine(this.Final_Tax);
+        }
+
+        public double LookFinalTax() {
+            return this.Final_Tax;
         }
 	}
 }

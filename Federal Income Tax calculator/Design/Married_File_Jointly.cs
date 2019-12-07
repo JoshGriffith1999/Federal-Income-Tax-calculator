@@ -12,14 +12,26 @@ namespace Federal_Income_Tax_calculator
             Console.WriteLine("Note before you add in anything add your income, deductions, independednts etc before enetering - THANKS!");
             base.Set_Name();
             base.Set_Income();
-            base.Calc_Deductions();
+            base.Calc_Deductions(24000);
             base.set_Calc_Exemption();
             this.calc_final_tax();
 
-            base.getName();
-            Console.WriteLine("You owe ");
-            base.getFinalTax();
-            Console.WriteLine("In taxes");
+            if (base.LookFinalTax() > 0)
+            {
+                base.getName();
+                Console.WriteLine("You owe ");
+                base.getFinalTax();
+                Console.WriteLine("In taxes");
+            }
+
+            else
+            {
+                base.getName();
+                Console.WriteLine("You will get ");
+                base.getFinalTax();
+                Console.WriteLine(" back in as return");
+
+            }
         }
         private double calc_final_tax()
         {
@@ -27,12 +39,18 @@ namespace Federal_Income_Tax_calculator
             double temp = base.getIcome();
             double final = 0;
 
-            //Bracket 1
-            if (temp > 19750)
-            {
+            double bracket1 = 19750;
+            double bracket2 = 80250;
+            double bracket3 = 171050;
+            double bracket4 = 326600;
+            double bracket5 = 414700;
+            double bracekt6 = 622050;
 
-                final = 19750 * 0.10;
-                temp -= 19750;
+            //Bracket 1
+            if (temp > bracket1)
+            {
+                temp -= bracket1;
+                final = 9875 * 0.10;
             }
 
             else
@@ -45,11 +63,10 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 2
-            if (temp > 80250)
+            if (temp > bracket2)
             {
-
-                final = final + (80250 * 0.12);
-                temp -= 80250;
+                temp -= bracket2;
+                final = final + (bracket2 * 0.12);
 
             }
 
@@ -60,10 +77,10 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 3
-            if (temp > 171050)
+            if (temp > bracket3)
             {
-                final = final + (171050 * 0.22);
-                temp -= 171050;
+                temp -= bracket3;
+                final = final + (bracket3 * 0.22);
             }
 
             else
@@ -74,10 +91,10 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 4
-            if (temp > 326600)
+            if (temp > bracket4)
             {
-                final = final + (326600 * 0.24);
-                temp -= 326600;
+                temp -= bracket4;
+                final = final + (bracket4 * 0.24);
             }
             else
             {
@@ -86,10 +103,10 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 5
-            if (temp > 414700)
+            if (temp > bracket5)
             {
-                final = final + (414700 * 0.32);
-                temp -= 414700;
+                temp -= bracket5;
+                final = final + (bracket5 * 0.32);
             }
             else
             {
@@ -98,10 +115,10 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 6
-            if (temp > 622050)
+            if (temp > bracekt6)
             {
-                final = final + (622050 * 0.35);
-                temp -= 622050;
+                final = final + (bracekt6 * 0.35);
+                temp -= bracekt6;
             }
             else
             {
@@ -110,11 +127,12 @@ namespace Federal_Income_Tax_calculator
             }
 
             //Bracket 7 - this one is special in the sense that so matter how much you make after bracket 6 your still going to be taxed at 37%
+
             base.setFinalTax(final + (temp * 0.37));
-            
+
 
             return 0;
         }
-      
+
     }
     }
