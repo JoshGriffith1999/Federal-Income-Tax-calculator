@@ -10,7 +10,7 @@ namespace Federal_Income_Tax_calculator
 
             base.Set_Name();
             base.Set_Income();
-            base.Calc_Deductions(12000);
+            base.Calc_Deductions(12200);
             base.set_Calc_Exemption();
             this.calc_final_tax();
 
@@ -18,7 +18,7 @@ namespace Federal_Income_Tax_calculator
             {
                 base.getName();
                 Console.WriteLine("You owe ");
-                base.getFinalTax();
+                base.getFinalTax(1);
                 Console.WriteLine("In taxes");
             }
 
@@ -26,7 +26,7 @@ namespace Federal_Income_Tax_calculator
             {
                 base.getName();
                 Console.WriteLine("You will get ");
-                base.getFinalTax();
+                base.getFinalTax(-1);
                 Console.WriteLine(" back in as return");
 
             }

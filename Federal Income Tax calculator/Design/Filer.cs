@@ -45,7 +45,6 @@ namespace Federal_Income_Tax_calculator
             double student_loan_interest = 0;
             double k_Payments = 0;
             double morgage_interest = 0;
-            int option = 0;
 
             if (this.Income < Standard_Deduction) {
 
@@ -68,16 +67,6 @@ namespace Federal_Income_Tax_calculator
             }
 
             else {
-                Console.WriteLine("Enter 1 for standard deduction or 2 for itemized deduction");
-                option = Convert.ToInt32(Console.ReadLine());
-
-                if (option == 1)
-                {
-
-                    this.Income = this.Income - Standard_Deduction;
-                }
-
-                else {
                     Console.WriteLine("Please Enter any taxes already with held");
                     TaxesWithHeld = double.Parse(Console.ReadLine());
 
@@ -93,9 +82,8 @@ namespace Federal_Income_Tax_calculator
                     if (morgage_interest > 750000)
                         morgage_interest = 750000;
 
-                    this.Income = this.Income - (TaxesWithHeld + student_loan_interest + k_Payments + morgage_interest);
+                    this.Income = this.Income - (TaxesWithHeld +  Standard_Deduction + student_loan_interest + k_Payments + morgage_interest);
 
-                }
 
             }
         }
@@ -121,9 +109,9 @@ namespace Federal_Income_Tax_calculator
         public void setFinalTax(double tax) {
             this.Final_Tax = tax;
         }
-        public void getFinalTax() {
+        public void getFinalTax(double x) {
 
-            Console.WriteLine(this.Final_Tax);
+            Console.WriteLine(this.Final_Tax * x);
         }
 
         //Use this function only to compare the final tax to a value of zero
