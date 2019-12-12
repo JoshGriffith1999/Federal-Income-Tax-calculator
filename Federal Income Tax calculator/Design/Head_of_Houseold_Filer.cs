@@ -8,9 +8,21 @@ namespace Federal_Income_Tax_calculator
 	{
         public Head_of_Houseold_Filer() {
 
+            start();
+        }
+
+        public void start() {
+
             base.Set_Name();
             base.Set_Income();
-            base.Calc_Deductions(12200);
+
+
+            if (this.getIcome() > 12200)
+                base.Calc_Deductions(12200);
+            else
+                base.Calc_Deductions();
+
+
             base.set_Calc_Exemption();
             this.calc_final_tax();
 
@@ -30,8 +42,9 @@ namespace Federal_Income_Tax_calculator
                 Console.WriteLine(" back in as return");
 
             }
-        }
 
+
+        }
         private double calc_final_tax()
         {
 

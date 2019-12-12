@@ -13,7 +13,7 @@ namespace Federal_Income_Tax_calculator
             int answer = 0;
             Console.WriteLine("2019 - 2020 Federal Income TAX Calculator");
             Console.WriteLine("Enter filing status 1: Single 2: Married file Jointly 3: 3 Married filing speratly 4: Head of Household");
-            Console.WriteLine("Filing status:\t");
+            Console.WriteLine("Filing status:");
             answer = Convert.ToInt32(Console.ReadLine());
 
             switch (answer)

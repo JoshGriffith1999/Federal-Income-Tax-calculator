@@ -4,14 +4,25 @@ using System.Text;
 
 namespace Federal_Income_Tax_calculator
 {
-	public class Single_Filer :Filer
-	{
+    public class Single_Filer : Filer
+    {
 
         public Single_Filer()
         {
+            start();
+        }
+
+        public void start() {
+
             base.Set_Name();
             base.Set_Income();
-            base.Calc_Deductions(12200);
+        
+            //Sets to determine which calc decuction it goes to
+            if (this.getIcome() > 12200)
+                base.Calc_Deductions(12200);
+            else
+                base.Calc_Deductions();
+
             base.set_Calc_Exemption();
             this.calc_final_tax();
 
@@ -23,7 +34,8 @@ namespace Federal_Income_Tax_calculator
                 Console.WriteLine("In taxes");
             }
 
-            else {
+            else
+            {
                 base.getName();
                 Console.WriteLine("You will get ");
                 base.getFinalTax(-1);
