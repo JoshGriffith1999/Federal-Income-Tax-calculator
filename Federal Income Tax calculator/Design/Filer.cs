@@ -7,6 +7,7 @@ namespace Federal_Income_Tax_calculator
 	public class Filer
 	{
 		private double Final_Tax = 0;
+        private double calc_capital_gain_tax = 0;
         private double Income = 0;
 		private string Name = null;
 
@@ -58,6 +59,8 @@ namespace Federal_Income_Tax_calculator
             Console.WriteLine("Please Enter any morgage interest");
             morgage_interest = double.Parse(Console.ReadLine());
 
+            calc_capital_gain();
+
             if (morgage_interest > 750000)
                 morgage_interest = 750000;
 
@@ -84,6 +87,8 @@ namespace Federal_Income_Tax_calculator
 
                     Console.WriteLine("Please Enter any morgage interest");
                     morgage_interest = double.Parse(Console.ReadLine());
+
+                    calc_capital_gain();
 
                     if (morgage_interest > 750000)
                         morgage_interest = 750000;
@@ -116,13 +121,48 @@ namespace Federal_Income_Tax_calculator
         }
         public void getFinalTax(double x) {
 
-            Console.WriteLine(this.Final_Tax * x);
+            Console.WriteLine((this.Final_Tax * x) + this.calc_capital_gain_tax);
         }
 
         //Use this function only to compare the final tax to a value of zero
         //Did it this way since I can't convert a double to a string because of size differences
         public double LookFinalTax() {
-            return this.Final_Tax;
+            return this.Final_Tax + this.calc_capital_gain_tax;
+        }
+
+        public double calc_capital_gain() {
+
+            double bracket1 = 39375;
+            double bracket2 = 434550;
+            double hold = this.calc_capital_gain_tax;
+            double tax = 0;
+
+            Console.WriteLine("Enter amount for money gained by selling anything ");
+            this.calc_capital_gain_tax = double.Parse(Console.ReadLine());
+
+
+            /*
+             Bracket 1 for capital gains is interesting because the tax rate it 0% meaning
+             our capital gains tax is zero if it doesn't go any higher than that
+             */
+            if (hold > bracket1)
+                hold -= bracket1;
+            else
+                return 0;
+            if (hold > bracket2)
+            {
+                hold -= bracket2;
+                tax = tax + (bracket2 * 0.15);
+            }
+
+            else
+            {
+                tax = tax + (hold * 0.12);
+                return 0;
+            }
+
+            tax = tax + (hold * 0.28);
+            return 0;
         }
 	}
 }

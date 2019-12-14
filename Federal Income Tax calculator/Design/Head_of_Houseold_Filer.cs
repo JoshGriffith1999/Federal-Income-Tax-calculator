@@ -29,7 +29,7 @@ namespace Federal_Income_Tax_calculator
             if (base.LookFinalTax() > 0)
             {
                 base.getName();
-                Console.WriteLine("You owe {1}");
+                Console.WriteLine("You owe ");
                 base.getFinalTax(1);
                 Console.WriteLine("In taxes");
             }
