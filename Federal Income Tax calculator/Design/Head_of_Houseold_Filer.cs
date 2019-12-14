@@ -18,7 +18,7 @@ namespace Federal_Income_Tax_calculator
 
 
             if (this.getIcome() > 12200)
-                base.Calc_Deductions(12200);
+                base.Calc_Deductions(18350);
             else
                 base.Calc_Deductions();
 
@@ -29,7 +29,7 @@ namespace Federal_Income_Tax_calculator
             if (base.LookFinalTax() > 0)
             {
                 base.getName();
-                Console.WriteLine("You owe ");
+                Console.WriteLine("You owe {1}");
                 base.getFinalTax(1);
                 Console.WriteLine("In taxes");
             }

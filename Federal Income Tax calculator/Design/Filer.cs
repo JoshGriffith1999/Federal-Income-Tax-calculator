@@ -6,9 +6,9 @@ namespace Federal_Income_Tax_calculator
 {
 	public class Filer
 	{
-		private double Final_Tax;
-		private double Income;
-		private string Name;
+		private double Final_Tax = 0;
+        private double Income = 0;
+		private string Name = null;
 
 		public void Set_Name()
 		{
