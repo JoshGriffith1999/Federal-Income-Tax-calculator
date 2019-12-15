@@ -10,24 +10,17 @@
         <Location left="547" top="178" />
         <Size width="242" height="383" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private int Final_Tax</Member>
-        <Member type="Field">private int Income</Member>
-        <Member type="Field">private int Deductions</Member>
-        <Member type="Field">private const int Standard_Deduction = 6,000.00</Member>
-        <Member type="Field">private int Exemption</Member>
-        <Member type="Field">private int Tax_Liability</Member>
-        <Member type="Field">private string First_Name</Member>
-        <Member type="Field">private string Last_Name</Member>
-        <Member type="Constructor">public Filer()</Member>
-        <Member type="Constructor">public Filer()</Member>
-        <Member type="Constructor">public Filer()</Member>
-        <Member type="Destructor">~Filer()</Member>
+        <Member type="Field">private double Final_Tax = 0</Member>
+        <Member type="Field">private double Income = 0</Member>
+        <Member type="Field">private string Name = null</Member>
+        <Member type="Field">double calc_capital_gain_tax = 0</Member>
         <Member type="Method">private void Set_Name()</Member>
         <Member type="Method">public void Set_Income()</Member>
         <Member type="Method">public double Calc_Deductions()</Member>
-        <Member type="Method">public double Calc_Exemption()</Member>
-        <Member type="Method">public double Calc_Tax_Liability()</Member>
-        <Member type="Method">public double Calc_Taxable_Income()</Member>
+        <Member type="Method">public void Calc_Deductions()</Member>
+        <Member type="Method">public void set_Calc_Exemption()</Member>
+        <Member type="Method">public void setFinalTax()</Member>
+        <Member type="Method">public void calc_capital_gain()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -36,13 +29,9 @@
         <Location left="222" top="651" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">double Capital_Gains</Member>
         <Member type="Constructor">public Single_Filer()</Member>
-        <Member type="Constructor">public Single_Filer()</Member>
-        <Member type="Constructor">public Single_Filer()</Member>
-        <Member type="Destructor">~Single_Filer()</Member>
-        <Member type="Method">public double Calc_Taxable_Income()</Member>
-        <Member type="Method">public double Calc_captical_Gaains_Tax()</Member>
+        <Member type="Method">public void start()</Member>
+        <Member type="Method">public double calc_final_tax()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -51,13 +40,9 @@
         <Location left="497" top="651" />
         <Size width="187" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">double Capital_gains</Member>
         <Member type="Constructor">public Married_File_Seperatly()</Member>
-        <Member type="Constructor">public Married_File_Seperatly()</Member>
-        <Member type="Constructor">public Married_File_Seperatly()</Member>
-        <Member type="Destructor">~Married_File_Seperatly()</Member>
-        <Member type="Method">public double Calc_Taxable_Income()</Member>
-        <Member type="Method">public double Calc_Captal_Gains_Tax()</Member>
+        <Member type="Method">public void start()</Member>
+        <Member type="Method">public double calc_final_tax()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -66,15 +51,9 @@
         <Location left="809" top="652" />
         <Size width="162" height="230" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">double Spouse1_Tax</Member>
-        <Member type="Field">double Spouse2_Tax</Member>
         <Member type="Constructor">public Married_File_Jointly()</Member>
-        <Member type="Constructor">public Married_File_Jointly()</Member>
-        <Member type="Constructor">public Married_File_Jointly()</Member>
-        <Member type="Destructor">~Married_File_Jointly()</Member>
-        <Member type="Method">public double Calc_Spouse1_Tax()</Member>
-        <Member type="Method">public double Calc_Spouse2_Tax()</Member>
-        <Member type="Method">public double Calc_Final_Tax()</Member>
+        <Member type="Method">public void start()</Member>
+        <Member type="Method">public double calc_final_tax()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -83,49 +62,32 @@
         <Location left="1121" top="652" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">double Capital_Gains</Member>
         <Member type="Constructor">public Head_of_Houseold_Filer()</Member>
-        <Member type="Constructor">public Head_of_Houseold_Filer()</Member>
-        <Member type="Constructor">public Head_of_Houseold_Filer()</Member>
-        <Member type="Destructor">~Head_of_Houseold_Filer()</Member>
-        <Member type="Method">public double Calc_Capital_Gains_tax()</Member>
-        <Member type="Method">public double Calc_Taxable_Income()</Member>
+        <Member type="Method">public void start()</Member>
+        <Member type="Method">public double calc_final_tax()</Member>
         <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Comment">
-        <Text>These have the same tax brakets as a single filer however its good to have just incase the use wants to file his/her taxes seperate from their spouse - in some cases this can equal out to a lesser overall tax number f the spouses file seperatly</Text>
-        <Location left="512" top="882" />
-        <Size width="196" height="124" />
       </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="0" second="1">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="2">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
