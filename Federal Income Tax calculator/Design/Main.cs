@@ -20,7 +20,7 @@ namespace Federal_Income_Tax_calculator
             {
 
                 case 1:
-                    Head_of_Houseold_Filer person = new Head_of_Houseold_Filer();
+                    Single_Filer person = new Single_Filer();
 
                     break;
                 case 2:

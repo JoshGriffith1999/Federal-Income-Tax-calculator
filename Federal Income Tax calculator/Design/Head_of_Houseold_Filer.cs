@@ -17,7 +17,7 @@ namespace Federal_Income_Tax_calculator
             base.Set_Income();
 
 
-            if (this.getIcome() > 12200)
+            if (this.getIcome() > 18350)
                 base.Calc_Deductions(18350);
             else
                 base.Calc_Deductions();
